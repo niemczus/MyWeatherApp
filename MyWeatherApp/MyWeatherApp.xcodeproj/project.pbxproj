@@ -13,6 +13,7 @@
 		32FD960427B68EFF00688958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD960227B68EFF00688958 /* Main.storyboard */; };
 		32FD960627B68F0000688958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FD960527B68F0000688958 /* Assets.xcassets */; };
 		32FD960927B68F0000688958 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FD960727B68F0000688958 /* LaunchScreen.storyboard */; };
+		32FD961127B6A12600688958 /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FD961027B6A12600688958 /* WeatherVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		32FD960527B68F0000688958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32FD960827B68F0000688958 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32FD960A27B68F0000688958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32FD961027B6A12600688958 /* WeatherVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				32FD960527B68F0000688958 /* Assets.xcassets */,
 				32FD960727B68F0000688958 /* LaunchScreen.storyboard */,
 				32FD960A27B68F0000688958 /* Info.plist */,
+				32FD961027B6A12600688958 /* WeatherVC.swift */,
 			);
 			path = MyWeatherApp;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32FD961127B6A12600688958 /* WeatherVC.swift in Sources */,
 				32FD960127B68EFF00688958 /* ViewController.swift in Sources */,
 				32FD95FD27B68EFF00688958 /* AppDelegate.swift in Sources */,
 				32FD95FF27B68EFF00688958 /* SceneDelegate.swift in Sources */,

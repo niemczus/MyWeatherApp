@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var goButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cityTextField.layer.cornerRadius = cityTextField.frame.height / 3
@@ -47,7 +48,10 @@ class ViewController: UIViewController {
 //                    print(components?.url)
                     
                     let weatherReport = try JSONDecoder().decode(WeatherReport.self, from: data)
-                    print(weatherReport)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "segue.Main.enterCityToWeather", sender: weatherReport)
+                    }
+                    
                     
                     
                 } catch {
@@ -58,10 +62,20 @@ class ViewController: UIViewController {
         
         dataTask.resume()
         
-        performSegue(withIdentifier: "segue.Main.enterCityToWeather", sender: nil)
+       
     }
     
     @IBAction func returnToMainVC(_ sender: UIStoryboardSegue) {}
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            super.prepare(for: segue, sender: sender)
+
+        if let weatherVC = segue.destination as? WeatherVC, let weatherReport = sender as? WeatherReport {
+            weatherVC.weatherReport = weatherReport
+            
+        }
+        
+    }
+    
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct WeatherReport: Codable {
     let city: String
@@ -19,15 +20,26 @@ struct WeatherReport: Codable {
     }
 }
 
-struct WeatherBreakdown: Codable {
-    let temperature: Double
-    
-    private enum CodingKeys: String, CodingKey {
-        case temperature = "temp"
+extension WeatherReport {
+    var temperatureInCelsius: String {
+        let formatedNumber = String(format: "%.1F", breakdown.temperature)
+        let temperatureInCelsius = "\(formatedNumber)°C"
+        return temperatureInCelsius
+    }
+    var conditionImage: UIImage {
+        guard let mainCondition = conditions.first else { return UIImage() }
+        
+        switch mainCondition.id {
+        case 200...299: return UIImage(named: "thunder") ?? UIImage()
+        case 300...399: return UIImage(named: "drizzle") ?? UIImage()
+        case 500...599: return UIImage(named: "rain") ?? UIImage()
+        case 600...699: return UIImage(named: "snow") ?? UIImage()
+        case 700...799: return UIImage(named: "atmosphere") ?? UIImage()
+        case 800      : return UIImage(named: "sunny") ?? UIImage()
+        case 801...899: return UIImage(named: "cloudy") ?? UIImage()
+        default: return UIImage()
+        }
     }
 }
 
-struct WeatherConditions: Codable {
-    let id: Int
-    let description: String
-}
+
